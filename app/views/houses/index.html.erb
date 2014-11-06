@@ -1,0 +1,31 @@
+
+<div class="housebody">
+<h1>Search houses</h1>
+
+<section>
+ 	
+ 	<h2>Search for your house:</h2>
+  <%= form_for houses_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+  <ul>
+  <% for house in @houses %>  
+    <li>
+      <%= link_to house.name, house %>
+    </li>
+    <% end %>
+  </ul>
+</section>
+
+<br>
+
+<%= link_to 'New House', new_house_path, :rel => 'facebox' %>
+</div>
+
+<div class="housebg">
+  <%= image_tag "houses.svg" %>
+</div>
